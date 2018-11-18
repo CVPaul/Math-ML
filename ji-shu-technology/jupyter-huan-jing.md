@@ -24,13 +24,13 @@ description: 为Jupyter添加kernel，扩展，外网访问，import notebook等
   * 执行：`python setup.py install`
 * 最后启动Jupyter： `jupyter notebook`
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%285%29.png)
 
 ### 测试Jupyter-MATLAB
 
-![](../.gitbook/assets/image%20%2819%29.png)
+![](../.gitbook/assets/image%20%2823%29.png)
 
 上面的运行结果是图片，没办法缩放，旋转啥的，这时候需要**%plot native**来启动MATLAB自带的窗口
 
-![](../.gitbook/assets/image%20%2812%29.png)
+![](../.gitbook/assets/image%20%2815%29.png)
 

@@ -18,9 +18,42 @@ description: 时间序列数据上的机器学习方法
 
 ![](.gitbook/assets/image%20%281%29.png)
 
-## ARCH模型
+接下来的会利用上面的数据建立时间序列模型，第一步先从最简单的线性模型（AR，MA，ARMA）开始，下一节的主要目的是使用python实现ARMA和ARCH模型，本节的原理部分主要摘抄自[这里](https://zhuanlan.zhihu.com/p/21962996)
 
-本节的主要目的是使用python实现ARCH模型，本节的原理部分主要摘抄自[这里](https://zhuanlan.zhihu.com/p/21962996)
+## 线性模型
+
+很多时间序列具有线性性，即是线性时间序列，相应的有很多线性时间序列模型
+
+### **自回归\(AR\)模型**
+
+这里不做过多的平稳性等讨论，纯粹从技术的角度讨论其实现
+
+#### 一阶自回归模型AR\(1\)
+
+![](.gitbook/assets/image%20%283%29.png)
+
+其中$${a_t}$$是**白噪声序列**
+
+#### $$p$$阶自回归模型AR\(p\)
+
+![](.gitbook/assets/image%20%2810%29.png)
+
+关于AR模型的定阶也是一个重要的问题，比价常用的方法有：
+
+* 第一种：利用**偏相关函数\(Partial Auto Correlation Function,PACF\)**
+* 第二种：利用**信息准则函数**
+  * AIC = -2 ln\(L\) + 2 k \# 中文名字：赤池信息量 akaike information criterion
+  * BIC = -2 ln\(L\) + ln\(n\)\*k \# 中文名字：贝叶斯信息量 bayesian information criterion
+  * HQ = -2 ln\(L\) + ln\(ln\(n\)\)\*k \# hannan-quinn criterion
+
+但是这里不对定阶做详细讨论，**原因是这些都只是准则，实际使用还是要从数据出**
+
+### **MA模型**
+
+MA模型和AR大同小异，它并非是历史时序值的线性组合而是历史白噪声的线性组合。与AR最大的不同之处在于，AR模型中历史白噪声的影响是间接影响当前预测值的（通过影响历史时序值）。  
+
+
+## ARCH模型
 
 ### ARCH的基本原理
 
@@ -33,7 +66,7 @@ ARCH模型将当前一切可利用信息作为条件，并采用某种自回归�
 * 资产收益率序列的扰动 {![a\_{t} ](http://www.zhihu.com/equation?tex=a_%7Bt%7D+)} 是序列不相关的，但是不独立。
 * {![a\_{t} ](http://www.zhihu.com/equation?tex=a_%7Bt%7D+)}的不独立性可以用其延迟值的简单二次函数来描述。具体而言，一个ARCH\(m\)模型为：
 
-  ![](https://pic2.zhimg.com/80/eae31cdb5224db0e882034a736a55299_hd.png)
+![](.gitbook/assets/image%20%2821%29.png)
 
 * 其中，{![\varepsilon \_{t} ](http://www.zhihu.com/equation?tex=%5Cvarepsilon+_%7Bt%7D+)}为 **均值为0，方差为1的独立同分布（iid）随机变量序列。**通常假定其服从标准正态分布。![\sigma \_{t}^{2} ](http://www.zhihu.com/equation?tex=%5Csigma+_%7Bt%7D%5E%7B2%7D+)为条件异方差。（注意区分：$$a_{t}$$和$$\alpha_t$$）
 
