@@ -19,26 +19,26 @@ description: 支持向量机
 
  在支持向量机的众多程序包中，最著名的当属台湾大学林智仁老师开发的 libsvm 了，由于libsvm是C++实现的是的，所以需要安装C++编译环境（TDM-GCC，下载地址：[http://tdm-gcc.tdragon.net/download](http://tdm-gcc.tdragon.net/download)，也可以使用VS的环境：mex -setup c++\)，这里直接使用了mex：
 
-![](.gitbook/assets/image%20%285%29.png)
+![](.gitbook/assets/image%20%289%29.png)
 
 接下来下载libsvm（[https://www.csie.ntu.edu.tw/~cjlin/libsvm/](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)，[https://github.com/cjlin1/libsvm](https://github.com/cjlin1/libsvm)）到任意目录，推荐目录：matlab根目录\MATLAB\R2018b\toolbox： 下载后解压：得到一个libsvm-master文件夹，将其所在的位置添加到MATLAB的路径中，并将里面的Windows文件夹添加到MATLAB的路径中，matlab添加路径的方式：【设置路径】—【添加并包含子文件夹】选择上述 libsvm-master 文件夹：
 
-![](.gitbook/assets/image%20%288%29.png)
+![](.gitbook/assets/image%20%2813%29.png)
 
  Matlab 当前路径切换到 libsvm-3.22\matlab 下：
 
-![](.gitbook/assets/image%20%2810%29.png)
+![](.gitbook/assets/image%20%2815%29.png)
 
 输入make命令，生成mex文件
 
-![](.gitbook/assets/image%20%289%29.png)
+![](.gitbook/assets/image%20%2814%29.png)
 
-![](.gitbook/assets/image%20%284%29.png)
+![](.gitbook/assets/image%20%287%29.png)
 
 将上步生成的 4 个 .mexw64 文件，拷贝粘贴到 libsvm-master\windows 路径下  
 替换原有文件，接下来就可以用了，输入svmtrain测试：
 
-![](.gitbook/assets/image%20%2811%29.png)
+![](.gitbook/assets/image%20%2817%29.png)
 
 上面表示成功了，在libsvm的根目录下有个heart\_scale的数据文件，切换在该目录下依次输入如下，命令
 
@@ -58,7 +58,7 @@ model = svmtrain(heart_scale_label,heart_scale_inst, '-c 1 -g 0.07');
 
 由于考虑2分类问题，所以这里有$$10\times(10-1)/2=45$$个模型的结果，结果太多下面仅展示两个，更多详细的信息附到文件尾部共查阅（或者查看试验记录experiment\_records.txt）
 
-![mnist&#x4E0A;class-0 VS class1&#x7684;&#x7ED3;&#x679C;](.gitbook/assets/image.png)
+![mnist&#x4E0A;class-0 VS class1&#x7684;&#x7ED3;&#x679C;](.gitbook/assets/image%20%282%29.png)
 
 #### 小结如下：
 
@@ -68,7 +68,7 @@ model = svmtrain(heart_scale_label,heart_scale_inst, '-c 1 -g 0.07');
 
 ####  
 
-![mnist&#x4E0A;class-0 VS class1&#x7684;&#x7ED3;&#x679C;](.gitbook/assets/image%20%281%29.png)
+![mnist&#x4E0A;class-0 VS class1&#x7684;&#x7ED3;&#x679C;](.gitbook/assets/image%20%283%29.png)
 
 #### 小结如下：
 
@@ -86,7 +86,7 @@ model = svmtrain(heart_scale_label,heart_scale_inst, '-c 1 -g 0.07');
 
 #### **用一句话解释SVM的核心思想就是：最大化分类间距，如下图所示：**
 
-![&#x6700;&#x5927;&#x5316;&#x5206;&#x7C7B;&#x95F4;&#x8DDD;&#x793A;&#x610F;&#x56FE;](.gitbook/assets/image%20%283%29.png)
+![&#x6700;&#x5927;&#x5316;&#x5206;&#x7C7B;&#x95F4;&#x8DDD;&#x793A;&#x610F;&#x56FE;](.gitbook/assets/image%20%285%29.png)
 
 将最大化分类间距用数学形表达出来我们就得到了SVM的数学表达形式，下面一步一步介绍如何推导出该公式，这里假设两类且正样本的label=1,负样本的label=-1,并用$$n$$表示样本数，即：
 
