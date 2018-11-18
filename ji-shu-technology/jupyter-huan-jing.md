@@ -2,7 +2,7 @@
 description: 为Jupyter添加kernel，扩展，外网访问，import notebook等
 ---
 
-# Jupyter环境
+# Jupyter环境搭建
 
 ## Kernel的添加
 

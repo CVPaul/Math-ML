@@ -7,7 +7,7 @@
 ## 技术（Technology）
 
 * [Pandas读写Mysql](ji-shu-technology/shu-ju-ku-mysql.md)
-* [Jupyter环境](ji-shu-technology/jupyter-huan-jing.md)
+* [Jupyter环境搭建](ji-shu-technology/jupyter-huan-jing.md)
 
 ## 机器学习（Machine Learning）
 
