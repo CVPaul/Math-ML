@@ -1,8 +1,8 @@
 ---
-description: 支持向量机
+description: 支持向量机：Support Vector Machine
 ---
 
-# 支持向量机（Support Vector Machine）
+# 支持向量机（SVM）
 
 ## libsvm在MATLAB中的使用
 

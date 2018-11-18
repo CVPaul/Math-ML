@@ -18,5 +18,28 @@ description: 时间序列数据上的机器学习方法
 
 ![](.gitbook/assets/image%20%281%29.png)
 
+## ARCH模型
 
+本节的主要目的是使用python实现ARCH模型，本节的原理部分主要摘抄自[这里](https://zhuanlan.zhihu.com/p/21962996)
+
+### ARCH的基本原理
+
+在传统计量经济学模型中，干扰项的方差被假设为常数。但是许多经济时间序列呈现出波动的集聚性，在这种情况下假设方差为常数是不恰当的。
+
+ARCH模型将当前一切可利用信息作为条件，并采用某种自回归形式来刻划方差的变异，对于一个时间序列而言，在不同时刻可利用的信息不同，而相应的条件方差也不同，**利用ARCH 模型，可以刻划出随时间而变异的条件方差**。
+
+#### ARCH模型思想
+
+* 资产收益率序列的扰动 {![a\_{t} ](http://www.zhihu.com/equation?tex=a_%7Bt%7D+)} 是序列不相关的，但是不独立。
+* {![a\_{t} ](http://www.zhihu.com/equation?tex=a_%7Bt%7D+)}的不独立性可以用其延迟值的简单二次函数来描述。具体而言，一个ARCH\(m\)模型为：
+
+  ![](https://pic2.zhimg.com/80/eae31cdb5224db0e882034a736a55299_hd.png)
+
+* 其中，{![\varepsilon \_{t} ](http://www.zhihu.com/equation?tex=%5Cvarepsilon+_%7Bt%7D+)}为 **均值为0，方差为1的独立同分布（iid）随机变量序列。**通常假定其服从标准正态分布。![\sigma \_{t}^{2} ](http://www.zhihu.com/equation?tex=%5Csigma+_%7Bt%7D%5E%7B2%7D+)为条件异方差。（注意区分：$$a_{t}$$和$$\alpha_t$$）
+
+#### ARCH模型效应
+
+从上面模型的结构看，大的过去的平方“扰动”会导致信息![a\_{t} ](http://www.zhihu.com/equation?tex=a_%7Bt%7D+)大的条件异方差。从而$$a_t$$有取绝对值较大的值的倾向。这意味着：**在ARCH的框架下，大的"扰动"会倾向于紧接着出现另一个大的"扰动"。这与波动率聚集的现象相似。**
+
+所谓ARCH模型效应，也就是**条件异方差序列的序列相关性**
 

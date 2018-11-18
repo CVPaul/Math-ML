@@ -1,7 +1,7 @@
 # Table of contents
 
 * [引言](README.md)
-* [支持向量机（Support Vector Machine）](svm.md)
+* [支持向量机（SVM）](svm.md)
 * [时间序列（Time Series）](time-series.md)
 
 ## 技术（Technology）
